@@ -1,0 +1,4 @@
+qualci
+======
+
+Qualitative Causal Inference
