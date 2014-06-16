@@ -1,4 +1,4 @@
 qualci
 ======
 
-Qualitative Causal Inference
+R package for qualitative causal inference
