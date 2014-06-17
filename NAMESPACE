@@ -1,0 +1,6 @@
+import(combinat)
+
+export(prepareData, quade)
+
+S3method(print, quade)
+S3method(print, matchedSets)

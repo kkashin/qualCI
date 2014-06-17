@@ -1,9 +1,5 @@
 ##### EXAMPLE OF USING QUAL INFO PACKAGE ######
 
-# first, load the scripts & necessary package
-require(combinat)
-source("~/Desktop/qualinfo.R")
-
 # let's create the data as in the full matching section in the paper:
 # set 1: 1 0 0 0
 # set 2: 1 1 0 
@@ -50,7 +46,6 @@ qout$permutations
 
 
 
-
 ### CHANGE PROBABILITIES OF TREATMENT VECTOR ###
 # for example, if we believe that treatment is 2 times as likely for unit 1 than for unit 2 in set 3:
 dat[[3]]$prob <- c(2/3,1/3)
@@ -69,3 +64,5 @@ for(m in 1:nrow(table7)){
 		table7[m,n] <- quade(dat)$pval
 	}
 }
+
+table7

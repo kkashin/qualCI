@@ -1,25 +1,3 @@
-##### Qual Info Package ######
-##### Konstantin Kashin ######
-##### March 6, 2014     ######
-
-print.matchedSets <- function(x){
-	nsets <- length(x)
-	sets <- names(dat)
-	if(attr(x,"unitNames")){
-		tab <- t(sapply(dat,function(x) c(paste(names(which(x$obsTreat==1)),collapse=", "),paste(names(which(x$obsTreat==0)),collapse=", "), x$rank)))
-		tab <- cbind(sets,tab)
-		colnames(tab) <- c("Set", "Treated","Control","Rank")
-	}
-	else{
-		tab <- t(sapply(dat,function(x) c(sum(x$obsTreat==1),sum(x$obsTreat==0), x$rank)))
-		tab <- cbind(sets,tab)
-		colnames(tab) <- c("Set", "Num. Treated","Num. Control","Rank")
-	}
-	cat(paste("Design contains",nsets,"matched sets:\n\n",sep=" "))
-	print(as.data.frame(tab),right=FALSE,quote=FALSE, row.names=FALSE)
-}
-
-
 prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank){
     # save call
     call <- match.call()
@@ -124,36 +102,4 @@ prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank
 	return(out)
 }
 
-possible.treatments <- function(d) {
-  dat <- factor(d)
-  N <- length(dat) # total number of units in set
-  n <- tabulate(dat) # count of ctrl and treated units
-  ng <- length(n) # number of values (should always be 2)
-  if(ng!=2) stop("Need 2 treatment levels per set.")
-  foo2 <- combn(N,n[2]) # these are essentially indices for control
-  #out <- matrix(NA, nrow=N, ncol=ncol(foo2))
-  out <- sapply(1:ncol(foo2),function(c){
-  	vec <- rep(0,N)
-  	vec[foo2[,c]] <- 1
-  	vec
-  	})
-  out <- list(possibleTreat = t(out), prob = rep(1/nrow(t(out)),nrow(t(out))))
-}
 
-quade <- function(dat){
-	Qs <- lapply(dat,function(st) st$rank*as.vector(st$possibleTreat %*% st$withinRank))
-	Qtab <- do.call(expand.grid,Qs)
-	Q <- rowSums(Qtab)
-	Qobs <- sum(sapply(dat,function(st) st$rank*as.vector(st$obsTreat %*% st$withinRank)))
-	Qprobs <- apply(do.call(expand.grid,lapply(dat, function(st) st$prob)),1,prod)
-	pval <- sum(Qprobs[which(Q>=Qobs)])
-	perms <- data.frame(Q=Q,prob=Qprobs)
-	out <- list(Qobs=Qobs,permutations=perms,pval=pval)
-	class(out) <- "quade"
-	return(out)
-}
-
-print.quade<- function(obj){
-	cat(paste("Observed Quade's statistic:",obj$Qobs,"\n",sep=" "))
-	cat(paste("Pr(>= Qobs):",round(obj$pval,5),"\n",sep=" "))
-}
