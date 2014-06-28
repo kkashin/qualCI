@@ -2,7 +2,7 @@
 
 # let's create the data as in the full matching section in the paper:
 # set 1: 1 0 0 0
-# set 2: 1 1 0 
+# set 2: 1 1 0
 # set 3: 1 0
 
 ### PREPARE DATAFRAME VIA LISTS ###
@@ -28,7 +28,7 @@ between.ranks <- c(2,3,1)
 # also pass list that gives betweenRank between sets
 # function return a list for each set j, containing a matrix with possible treatment combinations for that set j (conditional on m_s = number of treated units in set s), vector of probabilities associated with each row in the matrix, and the set's rank
 # by default, function outputs equal probabilities for each treatment vector 
-dat <- prepareData(data=df,set="set", treatment="treat",withinRank="rank",betweenRank=between.ranks)
+dat <- prepareData(data=df, set="set", treatment="treat", withinRank="rank", betweenRank=between.ranks)
 
 # print data object (output made pretty)
 dat

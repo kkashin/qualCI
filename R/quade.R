@@ -1,9 +1,9 @@
-quade <- function(dat){
-	Qs <- lapply(dat,function(st) st$rank*as.vector(st$possibleTreat %*% st$withinRank))
+quade <- function(obj){
+	Qs <- lapply(obj,function(st) st$rank*as.vector(st$possibleTreat %*% st$withinRank))
 	Qtab <- do.call(expand.grid,Qs)
 	Q <- rowSums(Qtab)
-	Qobs <- sum(sapply(dat,function(st) st$rank*as.vector(st$obsTreat %*% st$withinRank)))
-	Qprobs <- apply(do.call(expand.grid,lapply(dat, function(st) st$prob)),1,prod)
+	Qobs <- sum(sapply(obj,function(st) st$rank*as.vector(st$obsTreat %*% st$withinRank)))
+	Qprobs <- apply(do.call(expand.grid,lapply(obj, function(st) st$prob)),1,prod)
 	pval <- sum(Qprobs[which(Q>=Qobs)])
 	perms <- data.frame(Q=Q,prob=Qprobs)
 	out <- list(Qobs=Qobs,permutations=perms,pval=pval)
@@ -11,7 +11,7 @@ quade <- function(dat){
 	return(out)
 }
 
-print.quade<- function(obj){
+print.quade <- function(obj){
 	cat(paste("Observed Quade's statistic:",obj$Qobs,"\n",sep=" "))
 	cat(paste("Pr(>= Qobs):",round(obj$pval,5),"\n",sep=" "))
 }
