@@ -1,4 +1,51 @@
-##### EXAMPLE OF USING QUAL INFO PACKAGE ######
+##### EXAMPLES OF USING QUAL INFO PACKAGE ######
+
+# let's create the data as in the pair matching section in the paper:
+# set 1: 1 0
+# set 2: 1 0 
+# set 3: 1 0
+# set 4: 1 0
+
+### PREPARE DATAFRAME VIA LISTS ###
+# create list where element s is a vector of observed treatments for set s
+# element j of vector s is the observed treatment indicator for unit j of set s
+obs.treatments <- list(c(1,0),c(1,0),c(1,0),c(1,0))
+
+# create a corresponding list of within-set ranks (should match structure of obs.treatments)
+within.ranks <- list(c(2,1),c(2,1),c(2,1),c(2,1))
+
+# create a corresponding list of labels (optional)
+labels <- list(c("Cameroon","Gabon"),c("Kenya","Cote d'Ivoire"), c("Malawi","Zambia"), c("Tanzania", "Guinea-Bissau"))
+
+# put together into dataframe
+df <- data.frame(country=unlist(labels), set = rep(c(1,2,3,4), times=c(2,2,2,2)), treat=unlist(obs.treatments), rank = unlist(within.ranks))
+df
+
+# create vector of between ranks (could be named vector; if it isn't, assumes set names are just the vector positions)
+between.ranks <- c(3,4,2,1)
+
+### RUN DATA PREPARE FUNCTION ###
+# pass dataframe to prepareData function, along with the variable labels that denote treatment, set membership, label, and within-set rank
+# also pass list that gives betweenRank between sets
+# function return a list for each set j, containing a matrix with possible treatment combinations for that set j (conditional on m_s = number of treated units in set s), vector of probabilities associated with each row in the matrix, and the set's rank
+# by default, function outputs equal probabilities for each treatment vector 
+dat <- prepareData(data=df,set="set", treatment="treat",withinRank="rank",betweenRank=between.ranks)
+
+# print data object (output made pretty)
+dat
+
+# now look at a given set to see the insides of the dat object
+dat[[1]]
+
+
+### RUN THE FUNCTION TO CALCULATE P-VALUES for Quade's statistic ###
+qout <- quade(dat)
+qout 
+
+# of course, you can look inside qout to get the permutation distribution of Q
+qout$permutations
+
+
 
 # let's create the data as in the full matching section in the paper:
 # set 1: 1 0 0 0
