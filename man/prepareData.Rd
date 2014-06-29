@@ -44,9 +44,15 @@ Konstantin Kashin \email{kkashin@fas.harvard.edu}
 \seealso{
 }
 \examples{
-data(GlynnIchino)
+data(plurality)
+
+between.ranks <- c(3,4,2,1)
+dat <- prepareData(data=pluralityPairs, set="set", treatment="treat", 
+withinRank="rank", betweenRank=between.ranks)
+dat
+
 between.ranks <- c(2,3,1)
-dat <- prepareData(data=GlynnIchino, set="set", treatment="treat", 
+dat <- prepareData(data=pluralitySets, set="set", treatment="treat", 
 withinRank="rank", betweenRank=between.ranks)
 dat
 dat[[1]]

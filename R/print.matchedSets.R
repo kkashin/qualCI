@@ -11,6 +11,11 @@ print.matchedSets <- function(x){
 		tab <- cbind(sets,tab)
 		colnames(tab) <- c("Set", "Num. Treated","Num. Control","Rank")
 	}
-	cat(paste("Design contains",nsets,"matched sets:\n\n",sep=" "))
+	if(attr(x,"pairs")){
+		cat(paste("Design contains",nsets,"matched pairs:\n\n",sep=" "))
+	}
+	else{
+		cat(paste("Design contains",nsets,"matched sets:\n\n",sep=" "))	
+	}
 	print(as.data.frame(tab),right=FALSE,quote=FALSE, row.names=FALSE)
 }

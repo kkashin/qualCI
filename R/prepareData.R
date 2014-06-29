@@ -61,10 +61,13 @@ prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank
 		units <- by(data[,unit], data[,set],function(x) as.character(x))
 	}
 	
+	# units per set
+	units.per.set <- sapply(withinRankList, function(x) length(x))
+	
   	# check that ranks don't exceed number of units per set (by set)
-    if(any(sapply(withinRankList, function(x) any(x %in% 1:length(x) ==FALSE)))){
-    	stop("Within-set ranks may not exceed the number of units per set.")
-    }
+    #if(any(sapply(withinRankList, function(x) any(x %in% 1:length(x) ==FALSE)))){
+    	#stop("Within-set ranks may not exceed the number of units per set.")
+    #}
     
     # check that betweenRank is a vector
     if(!is.vector(betweenRank) | !is.numeric(betweenRank)){
@@ -98,6 +101,7 @@ prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank
 			}
 		}
 	attr(out,"unitNames") <- ifelse(!is.null(unit), TRUE, FALSE)
+	attr(out,"pairs") <- ifelse(all(units.per.set==2), TRUE, FALSE)
 	class(out) <- "matchedSets"
 	return(out)
 }

@@ -12,7 +12,7 @@
 obs.treatments <- list(c(1,0),c(1,0),c(1,0),c(1,0))
 
 # create a corresponding list of within-set ranks (should match structure of obs.treatments)
-within.ranks <- list(c(2,1),c(2,1),c(2,1),c(2,1))
+within.ranks <- list(c(1,0),c(1,0),c(1,0),c(1,0))
 
 # create a corresponding list of labels (optional)
 labels <- list(c("Cameroon","Gabon"),c("Kenya","Cote d'Ivoire"), c("Malawi","Zambia"), c("Tanzania", "Guinea-Bissau"))
