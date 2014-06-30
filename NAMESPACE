@@ -1,4 +1,4 @@
-import(combinat)
+import(combinat, reshape2)
 
 export(prepareData, quade, qualci)
 

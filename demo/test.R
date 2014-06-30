@@ -20,6 +20,3 @@ dat
 qout
 head(qout$permutations)
 qualci(qout)
-
-
-sapply(qout$sets, function(st) st$obsTreat==1)
