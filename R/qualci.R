@@ -12,14 +12,20 @@ qualci <- function(obj){
 		colnames(candidatePairsDF) <- c("Pair","Set")		
 		cat("All treatment / control pairs of adjacent rank:\n")
 		print(candidatePairsDF)
-		hardpair.idx <- readline("Please enter the number of the pair that was hardest to rank and press enter:")
+		cat("\n")
+		hardpair.idx <- 0
+		while(hardpair.idx < 1 | hardpair.idx > nrow(candidatePairsDF)){
+			hardpair.idx <- readline("Please enter the number of the pair that was hardest to rank and press enter: ")
+			hardpair.idx <- ifelse(grepl("\\D", hardpair.idx),0,as.integer(hardpair.idx))	
+			if(is.na(hardpair.idx)){stop("You have stopped the execution of qualci function.")}
+		}
 		lowest.rank.set.name <- candidatePairsDF[hardpair.idx,"Set"]
 		lowest.rank.pair <- strsplit(as.character(candidatePairsDF[hardpair.idx,"Pair"])," / ")[[1]]
 	}
 	# ci level
 	alpha <- within.statistic(obj$sets)
 	ci.level <- 1-alpha
-	out <- list(set=lowest.rank.set.name,qualci=lowest.rank.pair, ci.level=ci.level)
+	out <- list(qualci=lowest.rank.pair, set=lowest.rank.set.name, ci.level=ci.level)
 	attr(out,"pairs") <- attr(obj,"pairs")
 	class(out) <- "qualci"
 	return(out)

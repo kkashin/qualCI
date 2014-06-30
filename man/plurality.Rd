@@ -5,8 +5,8 @@
 
 \description{Replication data for Glynn and Ichino (2014). Contains two dataframes, corresponding to a matched pairs design (\code{pluralityPairs}) and a full matching design (\code{pluralitySets}).}
 
-\usage{pluralityPairs}
-\usage{pluralitySets}
+\usage{pluralityPairs
+	   pluralitySets}
 
 \format{The two dataframes both have the following variables: 
 	\itemize{
