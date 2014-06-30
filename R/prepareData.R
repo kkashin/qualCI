@@ -46,6 +46,8 @@ prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank
     if(any(data[,treatment] %in% c(0,1)==FALSE)){
     	stop("Treatment indicator must be binary.")
     }
+    
+
 
     if(!is.numeric(data[,withinRank])){
     	stop("Within-set rank must be numeric / integer.")
@@ -61,13 +63,18 @@ prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank
 		units <- by(data[,unit], data[,set],function(x) as.character(x))
 	}
 	
+	# check that each set has treated and control
+    if(!all(sapply(treatList, function(x) all(c(0,1) %in% x)))){
+    		stop("Each set must contain at least one treated and one control unit.")
+    	}
+	
 	# units per set
 	units.per.set <- sapply(withinRankList, function(x) length(x))
 	
   	# check that ranks don't exceed number of units per set (by set)
-    #if(any(sapply(withinRankList, function(x) any(x %in% 1:length(x) ==FALSE)))){
-    	#stop("Within-set ranks may not exceed the number of units per set.")
-    #}
+    if(!all(sapply(withinRankList, function(x) all(sort(x)==1:length(x)) | all(sort(x)==0:(length(x)-1))))) {
+    		stop("Within-set ranks must be sequential integers from 1 to number of units in the set (or from 0 to number of units in the set minus one). Ties are not allowed.")
+    }
     
     # check that betweenRank is a vector
     if(!is.vector(betweenRank) | !is.numeric(betweenRank)){

@@ -3,13 +3,13 @@ qualci <- function(obj){
 	if(attr(obj,"pairs")){
 		lowest.rank.set <- which.min(sapply(obj$sets,function(x) x$rank))
 		lowest.rank.set.name <- names(lowest.rank.set)
-		lowest.rank.pair <- colnames(obj$sets[[lowest.rank.set]]$possibleTreat)
+		# order by treated unit first
+		lowest.rank.pair <- names(sort(obj$sets[[lowest.rank.set]]$obsTreat, decreasing=TRUE))
 	}
 	else{
 		candidatePairsBySet <- lapply(obj$sets, function(st) getCandidatePairs(st))
 		candidatePairsBySet <- candidatePairsBySet[sapply(candidatePairsBySet,length)!=0]
-		candidatePairsDF <- melt(candidatePairsBySet)
-		colnames(candidatePairsDF) <- c("Pair","Set")		
+		candidatePairsDF <- do.call(rbind ,lapply(1:length(candidatePairsBySet), function(s) data.frame("Pair"=candidatePairsBySet[[s]], "Set"=names(candidatePairsBySet)[s])))
 		cat("All treatment / control pairs of adjacent rank:\n")
 		print(candidatePairsDF)
 		cat("\n")
@@ -17,7 +17,7 @@ qualci <- function(obj){
 		while(hardpair.idx < 1 | hardpair.idx > nrow(candidatePairsDF)){
 			hardpair.idx <- readline("Please enter the number of the pair that was hardest to rank and press enter: ")
 			hardpair.idx <- ifelse(grepl("\\D", hardpair.idx),0,as.integer(hardpair.idx))	
-			if(is.na(hardpair.idx)){stop("You have stopped the execution of qualci function.")}
+			if(is.na(hardpair.idx)){stop("You have stopped the execution of qualci function.",call.=FALSE)}
 		}
 		lowest.rank.set.name <- candidatePairsDF[hardpair.idx,"Set"]
 		lowest.rank.pair <- strsplit(as.character(candidatePairsDF[hardpair.idx,"Pair"])," / ")[[1]]
@@ -33,10 +33,10 @@ qualci <- function(obj){
 
 print.qualci <- function(obj){
 	if(attr(obj,"pairs")){
-		cat(paste("Qualitative confidence interval is difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
+		cat(paste("Qualitative confidence interval based on sign test is difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
 		cat(paste("Confidence level: ", round(obj$ci.level*100,2), "%", sep=""))
 	} else{
-		cat(paste("Qualitative confidence interval is difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
+		cat(paste("Qualitative confidence interval based on stratified rank sum test is difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
 		cat(paste("Confidence level: ", round(obj$ci.level*100,2), "%", sep=""))
 	}
 }
