@@ -2,7 +2,7 @@
 \name{qualci}
 \alias{qualci}
 \title{Calculate qualitative confidence intervals.}
-\description{insert here.}
+\description{Calculates qualitative confidence intervals based on a sign test for a matched pairs design and a stratified rank sum test for a general matched sets design.}
 \usage{
 qualci(obj)
 }
@@ -11,7 +11,7 @@ qualci(obj)
  }
 }
 
-\details{Function for calculating qualitative confidence intervals 
+\details{For a matched pairs design, function identifies difference between units in lowest ranked pair as the qualitative confidence interval, along with the confidence level from the sign test. For a general matched sets design, function prompts user to identify the hardest-to-rank pair from a pool of candidate pairs (all treatment-control pairs where treated unit has within-set rank that is immediately above the rank for the control unit). The function then returns the difference between units in this pair as the qualitative confidence interval, along with the confidence level from the stratified rank sum test.
 }
 \value{
 	\code{qualci} returns an object of class \code{"qualci"}, which consists of the following components: 

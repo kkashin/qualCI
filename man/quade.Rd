@@ -2,7 +2,7 @@
 \name{quade}
 \alias{quade}
 \title{Calculate Quade's statistic.}
-\description{Quade.}
+\description{Calculates signed rank statistic for matched pairs design and Quade's statistic for a general matched sets design, along with the corresponding p-value.}
 \usage{
 quade(obj)
 }
@@ -16,10 +16,10 @@ quade(obj)
 \value{
 	\code{quade} returns an object of class \code{"quade"}, which consists of the following components: 
 	
-	\item{Qobs}{observed Q statistic.}
-	\item{permutations}{a permutation matrix of possible Q statistics and associated probabilities.}
+	\item{Qobs}{observed test statistic.}
+	\item{permutations}{a permutation matrix of possible test statistics and associated probabilities.}
 	\item{pval}{p-value.}
-	\item{sets}{the "\code{\link{matchedSets}}" object.}
+	\item{sets}{the "\code{\link{matchedSets}}" object input into the function.}
 	} % end of \value
 \references{
 
