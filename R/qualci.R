@@ -33,10 +33,10 @@ qualci <- function(obj){
 
 print.qualci <- function(obj){
 	if(attr(obj,"pairs")){
-		cat(paste("Qualitative confidence interval based on sign test is difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
+		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as the difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
 		cat(paste("Confidence level: ", round(obj$ci.level*100,2), "%", sep=""))
 	} else{
-		cat(paste("Qualitative confidence interval based on stratified rank sum test is difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
+		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
 		cat(paste("Confidence level: ", round(obj$ci.level*100,2), "%", sep=""))
 	}
 }
