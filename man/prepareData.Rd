@@ -3,7 +3,7 @@
 \alias{prepareData}
 \alias{print.matchedSets}
 \title{Prepare data for qualitative causal inference.}
-\description{Function to prepare data for qualitative causal inference (signed rank test and Quade test). Processes a data frame with set identifiers, treatment indicators, and within-set ranks along with vector of between-set ranks to create a \code{"matchedSets"} object.}
+\description{Function to prepare data for the quade() function and hence the qualci() function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks along with vector of between-set ranks to create a \code{"matchedSets"} object.}
 \usage{
 prepareData(data, set, treatment, withinRank, unit=NULL, betweenRank)
 }

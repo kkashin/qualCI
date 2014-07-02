@@ -2,7 +2,7 @@
 \name{qualci}
 \alias{qualci}
 \title{Calculate qualitative confidence intervals.}
-\description{Calculates qualitative confidence intervals based on a sign test for a matched pairs design and a stratified rank sum test for a general matched sets design.}
+\description{Calculates one-sided qualitative confidence intervals based on a sign test for a matched pairs design and a stratified rank sum test for a general matched sets design.}
 \usage{
 qualci(obj)
 }
@@ -30,17 +30,18 @@ Konstantin Kashin \email{kkashin@fas.harvard.edu}
 \seealso{
 }
 \examples{
-data(plurality)
 
+data(pluralityPairs)
 between.ranks <- c(3,4,2,1)
-dat <- prepareData(data=pluralityPairs, set="set", treatment="treat", 
-withinRank="rank", betweenRank=between.ranks)
+dat <- prepareData(data=pluralityPairs, set="pair", treatment="plurality", 
+withinRank="OppHarRankPair", betweenRank=between.ranks)
 qout <- quade(dat)
 qualci(qout)
 
+data(pluralitySets)
 between.ranks <- c(2,3,1)
-dat <- prepareData(data=pluralitySets, set="set", treatment="treat", 
-withinRank="rank", betweenRank=between.ranks)
+dat <- prepareData(data=pluralitySets, set="set", treatment="plurality", 
+withinRank="OppHarRankPair", betweenRank=between.ranks)
 qout <- quade(dat)
 qualci(qout)
 
