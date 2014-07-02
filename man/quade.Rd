@@ -2,7 +2,7 @@
 \name{quade}
 \alias{quade}
 \title{Calculate Quade's statistic.}
-\description{Calculates signed rank statistic for matched pairs design and Quade's statistic for a general matched sets design, along with the corresponding p-value.}
+\description{Calculates Quade's statistic and p-value for a general matched sets design  signed rank statistic and p-value for matched pairs design and . Arbitrary treatment allocations are allowed as well as arbitrary probability of treatment allocation.}
 \usage{
 quade(obj)
 }
