@@ -1,8 +1,8 @@
 \encoding{UTF-8}
 \name{quade}
 \alias{quade}
-\title{Calculate Quade's statistic.}
-\description{Calculates Quade's statistic and p-value for a general matched sets design  signed rank statistic and p-value for matched pairs design and . Arbitrary treatment allocations are allowed as well as arbitrary probability of treatment allocation.}
+\title{Calculate Quade's statistic and one-sided p-value.}
+\description{Calculates Quade's statistic and one-sided p-value for a stratified completely randomized design with arbitrary probability of treatment assignment}
 \usage{
 quade(obj)
 }
@@ -31,17 +31,17 @@ Konstantin Kashin \email{kkashin@fas.harvard.edu}
 \seealso{
 }
 \examples{
-data(plurality)
-
+data(pluralityPairs)
 between.ranks <- c(3,4,2,1)
-dat <- prepareData(data=pluralityPairs, set="set", treatment="treat", 
-withinRank="rank", betweenRank=between.ranks)
+dat <- prepareData(data=pluralityPairs, set="pair", treatment="plurality", 
+withinRank="OppHarRankPair", betweenRank=between.ranks)
 qout <- quade(dat)
 qout
 
+data(pluralitySets)
 between.ranks <- c(2,3,1)
-dat <- prepareData(data=pluralitySets, set="set", treatment="treat", 
-withinRank="rank", betweenRank=between.ranks)
+dat <- prepareData(data=pluralitySets, set="set", treatment="plurality", 
+withinRank="OppHarRankSet", betweenRank=between.ranks)
 qout <- quade(dat)
 qout
 head(qout$permutations)
