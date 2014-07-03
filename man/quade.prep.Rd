@@ -3,7 +3,7 @@
 \alias{quade.prep}
 \alias{print.matchedSets}
 \title{Prepare data for qualitative causal inference.}
-\description{Function to prepare data for the \code{\link{quade}} function and hence the \code{\link{qualCI}} function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks,0 along with vector of between-set ranks to create a "\code{matchedSets}" object.}
+\description{Function to prepare data for the \code{\link{quade}} function and hence the \code{\link{qualCI}} function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks, along with vector of between-set ranks to create a "\code{matchedSets}" object.}
 \usage{
 quade.prep(data, set, treatment, withinRank, unit=NULL, betweenRank)
 }
@@ -47,13 +47,13 @@ Konstantin Kashin \email{kkashin@fas.harvard.edu}
 data(pluralityPairs)
 between.ranks <- c(3,4,2,1)
 dat <- quade.prep(data=pluralityPairs, set="pair", treatment="plurality", 
-withinRank="OppHarRank", betweenRank=between.ranks)
+withinRank="OppHarRank", unit="country", betweenRank=between.ranks)
 dat
 
 data(pluralitySets)
 between.ranks <- c(2,3,1)
 dat <- quade.prep(data=pluralitySets, set="set", treatment="plurality", 
-withinRank="OppHarRank", betweenRank=between.ranks)
+withinRank="OppHarRank", unit="country", betweenRank=between.ranks)
 dat
 dat[[1]]
 }
