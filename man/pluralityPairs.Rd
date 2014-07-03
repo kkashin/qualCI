@@ -22,7 +22,7 @@ Glynn and Ichino (2014a,b) contain fuller descriptions of opposition harassment 
 	}
 
 \references{
-Glynn, Adam N., and Nahomi Ichino.  2014a.  Supplementary Information (online appendix) for "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  (weblink)
+Glynn, Adam N., and Nahomi Ichino.  2014a.  \href{http://sites.lsa.umich.edu/nichino/wp-content/uploads/sites/106/2014/06/Glynn_Ichino_qualCI_SI.pdf}{Supplementary Information (online appendix) for "Using Qualitative Information to Improve Causal Inference."}  \emph{American Journal of Political Science}.  
 
 Glynn, Adam N., and Nahomi Ichino.  2014b.  "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  Forthcoming.
 
