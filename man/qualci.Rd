@@ -11,14 +11,14 @@ qualCI(obj)
  }
 }
 
-\details{For a matched pairs design, the function identifies the difference between units in the lowest ranked pair as the qualitative confidence interval, along with the confidence level from the sign test. For a general matched sets design, the function prompts the user to identify the hardest-to-rank pair from a pool of candidate pairs (all treatment-control pairs where the treated unit has a within-set rank that is immediately above the rank for the control unit). The function then returns the difference between units in this pair as the qualitative confidence interval, along with the confidence level from the stratified rank sum test.
+\details{For a matched pairs design, the function identifies the difference between the units in the lowest ranked pair as the qualitative confidence interval, along with the confidence level from the sign test. For a general matched sets design, the function prompts the user to identify the hardest-to-rank pair from a pool of candidate pairs (all treatment-control pairs where the treated unit has a within-set rank that is immediately above the rank for the control unit). The function then returns the difference between the units in this pair as the qualitative confidence interval, along with the confidence level from the stratified rank sum test.
 }
 \value{
 	\code{qualCI} returns an object of class "\code{qualCI}", which consists of the following components: 
 	
 	\item{qualci}{pair of units whose difference represents the qualitative confidence interval}
 	\item{set}{set from which pair was drawn}
-	\item{ci.level}{confidence interval level based on sign rank test (for matched pairs) and the stratified rank sum test (for more general matched sets)}
+	\item{ci.level}{confidence interval level based on sign rank test for matched pairs and the stratified rank sum test for more general matched sets}
 	} % end of \value
 
 \author{

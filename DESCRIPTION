@@ -6,6 +6,6 @@ Author: Konstantin Kashin <kkashin@fas.harvard.edu>, Adam Glynn <aglynn@emory.ed
 Maintainer: Konstantin Kashin <kkashin@fas.harvard.edu>
 Depends: R (>= 2.15.0)
 Imports: combinat
-Description: Exact one-sided p-values and confidence intervals for when only qualitative and ordinal information are available for an outcome variable defined on an interval measurement scale. 
+Description: Exact one-sided p-values and confidence intervals for an outcome variable defined on an interval measurement scale with only qualitative and ordinal information available. 
 License: GPL (>=2)
 BugReports: https://github.com/kkashin/qualCI/issues

@@ -3,7 +3,7 @@
 \alias{quade.prep}
 \alias{print.matchedSets}
 \title{Prepare data for qualitative causal inference.}
-\description{Function to prepare data for the \code{\link{quade}} function and hence the \code{\link{qualCI}} function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks along with vector of between-set ranks to create a "\code{matchedSets}" object.}
+\description{Function to prepare data for the \code{\link{quade}} function and hence the \code{\link{qualCI}} function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks,0 along with vector of between-set ranks to create a "\code{matchedSets}" object.}
 \usage{
 quade.prep(data, set, treatment, withinRank, unit=NULL, betweenRank)
 }
@@ -24,7 +24,7 @@ quade.prep(data, set, treatment, withinRank, unit=NULL, betweenRank)
 
 \details{Function for preparing data for the \code{\link{quade}} function. Each set should contain at least one treated unit and at least one control unit.
 	
-Within-set ranks must consist of a sequence of consecutive integers starting with either 0 or 1. Ties are not permitted. Typical practice consists of using 0 and 1 to rank units within a matched pairs design and using consecutive integers starting with 1 to rank units within a more general matched sets design. 
+Within-set ranks must consist of a sequence of consecutive integers starting with either 0 or 1. Ties are not permitted. Typical practice uses 0 and 1 to rank units in a matched pairs design and uses consecutive integers starting with 1 to rank units in a more general matched sets design. 
 
 Between-set ranks should be consecutive integers starting with 1. The names on the vector should correspond to the set nomenclature in \code{data[,set]}.
 }
@@ -32,7 +32,7 @@ Between-set ranks should be consecutive integers starting with 1. The names on t
 	\code{prepareData} returns an object of class "\code{matchedSets}", which is a named list of length equal to the number of sets. A given list element (corresponding to a set) consists of the following components: 
 	
 	\item{possibleTreat}{a matrix of possible treatment vectors, where rows correspond to different treatment permutations and columns correspond to the units.}
-	\item{prob}{a vector of probabilities corresponding to the probability of receiving a particular treatment permutation from the matrix of possible treatments. Length is equal to number of rows in \code{possibleTreat}.}
+	\item{prob}{a vector of probabilities corresponding to the probability of receiving a particular treatment permutation from the matrix of possible treatments. Length is equal to the number of rows in \code{possibleTreat}.}
 	\item{obsTreat}{a named vector denoting observed treatment status.}
 	\item{withinRank}{a named vector denoting within-set ranks of units.}
 	\item{rank}{numeric, denoting between-set rank of given set.}
