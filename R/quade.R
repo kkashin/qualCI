@@ -13,12 +13,12 @@ quade <- function(obj){
 }
 
 
-print.quade <- function(obj){
-	if(attr(obj,"pairs")){
-		cat(paste("Observed signed rank statistic (Qobs):",obj$Qobs,"\n",sep=" "))
+print.quade <- function(x,...){
+	if(attr(x,"pairs")){
+		cat(paste("Observed signed rank statistic (Qobs):",x$Qobs,"\n",sep=" "))
 	} 
 	else{
-		cat(paste("Observed Quade's statistic (Qobs):",obj$Qobs,"\n",sep=" "))
+		cat(paste("Observed Quade's statistic (Qobs):",x$Qobs,"\n",sep=" "))
 	}
-	cat(paste("Pr(>= Qobs):",round(obj$pval,5),"\n",sep=" "))
+	cat(paste("Pr(>= Qobs):",round(x$pval,5),"\n",sep=" "))
 }

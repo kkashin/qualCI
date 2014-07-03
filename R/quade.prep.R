@@ -1,4 +1,4 @@
-prepareData <- function(data, set, treatment, withinRank, unit=NULL, betweenRank){
+quade.prep <- function(data, set, treatment, withinRank, unit=NULL, betweenRank){
     # save call
     call <- match.call()
     

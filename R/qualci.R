@@ -1,4 +1,4 @@
-qualci <- function(obj){
+qualCI <- function(obj){
 	# if matched pairs
 	if(attr(obj,"pairs")){
 		lowest.rank.set <- which.min(sapply(obj$sets,function(x) x$rank))
@@ -27,17 +27,18 @@ qualci <- function(obj){
 	ci.level <- 1-alpha
 	out <- list(qualci=lowest.rank.pair, set=lowest.rank.set.name, ci.level=ci.level)
 	attr(out,"pairs") <- attr(obj,"pairs")
-	class(out) <- "qualci"
+	class(out) <- "qualCI"
 	return(out)
 }
 
-print.qualci <- function(obj){
-	if(attr(obj,"pairs")){
-		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as the difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
-		cat(paste("Confidence level: ", round(obj$ci.level*100,2), "%", sep=""))
+
+print.qualCI <- function(x,...){
+	if(attr(x,"pairs")){
+		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as the difference between ",x$qualci[1], " and ", x$qualci[2], " in set ", x$set, "\n", sep=""))
+		cat(paste("Confidence level: ", round(x$ci.level*100,2), "%", sep=""))
 	} else{
-		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as difference between ",obj$qualci[1], " and ", obj$qualci[2], " in set ", obj$set, "\n", sep=""))
-		cat(paste("Confidence level: ", round(obj$ci.level*100,2), "%", sep=""))
+		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as difference between ",x$qualci[1], " and ", x$qualci[2], " in set ", x$set, "\n", sep=""))
+		cat(paste("Confidence level: ", round(x$ci.level*100,2), "%", sep=""))
 	}
 }
 

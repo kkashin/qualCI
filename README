@@ -1,15 +1,21 @@
 ##################################################
 ##                                              ##
-## qualci                                       ##
+## qualCI					##
+##						##
+## Causal Inference with Qualitative            ##
+## and Ordinal Information on Outcomes          ##
+##						##
 ## README                                       ##
 ##                                              ##
-## Authors go here.   ##
+## Konstantin Kashin <kkashin@fas.harvard.edu>  ##
+## Adam Glynn <aglynn@emory.edu>                ##
+## Nahomi Ichino <nichino@umich.edu>            ##
 ##                                              ##
 ##################################################
 
-Description goes here.
+R package for exact one-sided p-values and confidence intervals for when only qualitative and ordinal information are available for an outcome variable defined on an interval measurement scale. 
 
-Please feel free to contact us for any questions you might have about the package. 
+Please feel free to contact us for any questions you might have about the package or alternatively report bugs at https://github.com/kkashin/qualCI/issues. 
 
 --
 Maintainer: Konstantin Kashin <kkashin@fas.harvard.edu>

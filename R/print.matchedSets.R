@@ -1,13 +1,13 @@
-print.matchedSets <- function(x){
+print.matchedSets <- function(x,...){
 	nsets <- length(x)
-	sets <- names(dat)
+	sets <- names(x)
 	if(attr(x,"unitNames")){
-		tab <- t(sapply(dat,function(x) c(paste(names(which(x$obsTreat==1)),collapse=", "),paste(names(which(x$obsTreat==0)),collapse=", "), x$rank)))
+		tab <- t(sapply(x,function(st) c(paste(names(which(st$obsTreat==1)),collapse=", "),paste(names(which(st$obsTreat==0)),collapse=", "), st$rank)))
 		tab <- cbind(sets,tab)
 		colnames(tab) <- c("Set", "Treated","Control","Rank")
 	}
 	else{
-		tab <- t(sapply(dat,function(x) c(sum(x$obsTreat==1),sum(x$obsTreat==0), x$rank)))
+		tab <- t(sapply(x,function(st) c(sum(st$obsTreat==1),sum(st$obsTreat==0), st$rank)))
 		tab <- cbind(sets,tab)
 		colnames(tab) <- c("Set", "Num. Treated","Num. Control","Rank")
 	}
