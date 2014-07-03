@@ -37,7 +37,7 @@ print.qualCI <- function(x,...){
 		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as the difference between ",x$qualci[1], " and ", x$qualci[2], " in set ", x$set, "\n", sep=""))
 		cat(paste("Confidence level: ", round(x$ci.level*100,2), "%", sep=""))
 	} else{
-		cat(paste("Lower bound of qualitative one-sided confidence interval based on sign test can be described as difference between ",x$qualci[1], " and ", x$qualci[2], " in set ", x$set, "\n", sep=""))
+		cat(paste("Lower bound of qualitative one-sided confidence interval based on stratified rank sum test can be described as the difference between ",x$qualci[1], " and ", x$qualci[2], " in set ", x$set, "\n", sep=""))
 		cat(paste("Confidence level: ", round(x$ci.level*100,2), "%", sep=""))
 	}
 }
