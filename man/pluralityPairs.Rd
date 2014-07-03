@@ -1,9 +1,9 @@
 \name{pluralityPairs}
 \alias{pluralityPairs}
 \docType{data}
-\title{Glynn and Ichino (2014) replication data for paired design}
+\title{Glynn and Ichino (2014b) replication data for paired design}
 
-\description{Replication data for Glynn and Ichino (2014). Contains the dataframe \code{pluralityPairs}, corresponding to a matched pairs design.}
+\description{Replication data for Glynn and Ichino (2014b). Contains the dataframe \code{pluralityPairs}, corresponding to a matched pairs design.}
 
 \usage{pluralityPairs}
 
@@ -22,9 +22,10 @@ Glynn and Ichino (2014a,b) contain fuller descriptions of opposition harassment 
 	}
 
 \references{
-Glynn, Adam N., and Nahomi Ichino.  2014a.  "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  Forthcoming.
+Glynn, Adam N., and Nahomi Ichino.  2014a.  \href{http://sites.lsa.umich.edu/nichino/wp-content/uploads/sites/106/2014/06/Glynn_Ichino_qualCI_SI.pdf}{Supplementary Information (online appendix) for "Using Qualitative Information to Improve Causal Inference."}  \emph{American Journal of Political Science}.  
 
-Glynn, Adam N., and Nahomi Ichino.  2014b.  Supplementary Information (online appendix) for "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  (weblink)
+Glynn, Adam N., and Nahomi Ichino.  2014b.  "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  Forthcoming.
+
 	}
 
 \seealso{\code{\link{quade}}.}
