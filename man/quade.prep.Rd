@@ -47,13 +47,13 @@ Konstantin Kashin \email{kkashin@fas.harvard.edu}
 data(pluralityPairs)
 between.ranks <- c(3,4,2,1)
 dat <- quade.prep(data=pluralityPairs, set="pair", treatment="plurality", 
-withinRank="OppHarRank", betweenRank=between.ranks)
+withinRank="OppHarRank", unit="country", betweenRank=between.ranks)
 dat
 
 data(pluralitySets)
 between.ranks <- c(2,3,1)
 dat <- quade.prep(data=pluralitySets, set="set", treatment="plurality", 
-withinRank="OppHarRank", betweenRank=between.ranks)
+withinRank="OppHarRank", unit="country", betweenRank=between.ranks)
 dat
 dat[[1]]
 }

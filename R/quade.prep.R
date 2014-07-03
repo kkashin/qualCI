@@ -102,15 +102,16 @@ quade.prep <- function(data, set, treatment, withinRank, unit=NULL, betweenRank)
 		out[[s]]$rank <- bw
 		if(!is.null(unit)){
 			set.labels <- units[[s]]
-			colnames(out[[s]]$possibleTreat) <- set.labels
-			names(out[[s]]$obsTreat) <- set.labels
-			names(out[[s]]$withinRank) <- set.labels
+		} else{
+			set.labels <- as.character(1:length(withinRankList[[s]]))	
 			}
+		colnames(out[[s]]$possibleTreat) <- set.labels
+		names(out[[s]]$obsTreat) <- set.labels
+		names(out[[s]]$withinRank) <- set.labels
 		}
+	
 	attr(out,"unitNames") <- ifelse(!is.null(unit), TRUE, FALSE)
 	attr(out,"pairs") <- ifelse(all(units.per.set==2), TRUE, FALSE)
 	class(out) <- "matchedSets"
 	return(out)
 }
-
-
