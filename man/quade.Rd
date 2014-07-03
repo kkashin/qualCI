@@ -2,7 +2,7 @@
 \name{quade}
 \alias{quade}
 \title{Calculate Quade's statistic and one-sided p-value.}
-\description{Calculates Quade's statistic and one-sided p-value for a stratified completely randomized design with arbitrary probability of treatment assignment.}
+\description{Calculates Quade's statistic and exact one-sided p-value for a stratified completely randomized design with arbitrary probability of treatment assignment.}
 \usage{
 quade(obj)
 }
