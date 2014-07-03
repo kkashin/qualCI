@@ -1,9 +1,9 @@
 \name{pluralitySets}
 \alias{pluralitySets}
 \docType{data}
-\title{Glynn and Ichino (2014) replication data for full matching design}
+\title{Glynn and Ichino (2014b) replication data for full matching design}
 
-\description{Replication data for Glynn and Ichino (2014). Contains the dataframe \code{pluralitySets}, corresponding to a full matching design.}
+\description{Replication data for Glynn and Ichino (2014b). Contains the dataframe \code{pluralitySets}, corresponding to a full matching design.}
 
 \usage{pluralitySets}
 
@@ -23,9 +23,9 @@ Glynn and Ichino (2014a,b) contain fuller descriptions of opposition harassment 
 
 
 \references{
-Glynn, Adam N., and Nahomi Ichino.  2014a.  "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  Forthcoming.
+Glynn, Adam N., and Nahomi Ichino.  2014a.  Supplementary Information (online appendix) for "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  (weblink)
 
-Glynn, Adam N., and Nahomi Ichino.  2014b.  Supplementary Information (online appendix) for "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  (weblink)
+Glynn, Adam N., and Nahomi Ichino.  2014b.  "Using Qualitative Information to Improve Causal Inference."  \emph{American Journal of Political Science}.  Forthcoming.
 	}
 
 \seealso{\code{\link{quade}}.}
