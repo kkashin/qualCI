@@ -3,7 +3,7 @@
 \alias{quade.prep}
 \alias{print.matchedSets}
 \title{Prepare data for qualitative causal inference.}
-\description{Function to prepare data for the \code{\link{quade}} function and hence the \code{\link{qualCI}} function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks,0 along with vector of between-set ranks to create a "\code{matchedSets}" object.}
+\description{Function to prepare data for the \code{\link{quade}} function and hence the \code{\link{qualCI}} function. Processes a data frame with set identifiers, treatment indicators, and within-set ranks, along with vector of between-set ranks to create a "\code{matchedSets}" object.}
 \usage{
 quade.prep(data, set, treatment, withinRank, unit=NULL, betweenRank)
 }
