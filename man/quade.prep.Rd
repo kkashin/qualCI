@@ -29,7 +29,7 @@ Within-set ranks must consist of a sequence of consecutive integers starting wit
 Between-set ranks should be consecutive integers starting with 1. The names on the vector should correspond to the set nomenclature in \code{data[,set]}.
 }
 \value{
-	\code{prepareData} returns an object of class "\code{matchedSets}", which is a named list of length equal to the number of sets. A given list element (corresponding to a set) consists of the following components: 
+	\code{quade.prep} returns an object of class "\code{matchedSets}", which is a named list of length equal to the number of sets. A given list element (corresponding to a set) consists of the following components: 
 	
 	\item{possibleTreat}{a matrix of possible treatment vectors, where rows correspond to different treatment permutations and columns correspond to the units.}
 	\item{prob}{a vector of probabilities corresponding to the probability of receiving a particular treatment permutation from the matrix of possible treatments. Length is equal to the number of rows in \code{possibleTreat}.}
